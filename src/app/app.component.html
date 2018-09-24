@@ -1,5 +1,4 @@
 
-
 <div class="container-fluid">
 
   <div class="row">
@@ -14,24 +13,41 @@
     </div>
   </div>
 
-<div class="row">
-  <div class="col-sm-8">
-    <ul>
-      <li *ngFor="let user of newsData">
-        {{ user.id }}  <br>
-        <h3> {{ user.heading }} <br> </h3>
-        <img src="{{ user.image }}" alt="Italian Trulli">     <br>
-        {{ user.content }}  <br>
-        <a href="{{ user.link }}">Link</a>    <br><br><br>
+  <div class="row">
+    <button class="tablink" >SPORTS</button>
+    <button class="tablink" >ENTERTAINMENT</button>
+    <button class="tablink" >POLITICS</button>
+    <button class="tablink" >BUSSINES</button>
+  </div>
+  <div class="container">
 
-      </li>
-    </ul>
+    <div class="row">
+      <div class="col-sm-4">
+        <h3>TOP HEADLINE</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-8">
+        <ul>
+          <li *ngFor="let user of newsData">
+            {{ user.id }}  <br>
+            <h3> {{ user.heading }} <br> </h3>
+            <img src="{{ user.image }}" alt="Italian Trulli">     <br>
+            {{ user.content }}  <br>
+            <a href="{{ user.link }}">Link</a>    <br><br><br>
+
+          </li>
+        </ul>
+      </div>
+
+
+      <div class="col-sm-4">.col-sm-4</div>
+
+    </div>
+
   </div>
 
-
-  <div class="col-sm-4">.col-sm-4</div>
-
-</div>
 
 
 </div>

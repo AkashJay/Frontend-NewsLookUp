@@ -72,3 +72,31 @@ body {
     border: 1px solid #ccc;
   }
 }
+
+body {font-family: "Lato", sans-serif;}
+
+.tablink {
+  background-color: #ddd;
+  color: black;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 14px;
+  width: 25%;
+}
+
+.tablink:hover {
+  background-color: #ddd;
+}
+
+/* Style the tab content */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 10px;
+  text-align: center;
+}
+
+
