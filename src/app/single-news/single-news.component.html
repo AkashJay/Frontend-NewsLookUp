@@ -1,0 +1,98 @@
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="topnav">
+      <a class="active" href="#home"><b>Srilankan NewsLookUP</b></a>
+      <div class="search-container">
+        <form>
+          <input type="text" placeholder="Search.." name="search"  [(ngModel)]="inputValue" >
+          <button type="submit" (click)="onChanged()">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+
+    <div class="row" *ngFor="let user of newsData">
+
+      <!-- row -->
+      <div class="row" >
+        <div class="col-md-8">
+
+          <div class="col-md-12">
+            <div class="main-post">
+              <br>
+              <h3>{{ user.heading }}</h3>
+              <h4>{{ user.date | date :'longDate' }} {{ user.time }}</h4>
+            </div>
+          </div>
+
+            <div class="post post-thumb">
+              <img src="{{ user.image }}" alt="">
+              <div class="post-body">
+                <div class="post-meta">
+                  <a class="post-category cat-2" >Local</a>
+                  <span class="post-date">{{ user.date | date :'longDate' }}</span>
+                </div>
+
+              </div>
+            </div>
+          <!-- /post -->
+
+          <div class="main-post">
+            <p> {{ user.content }} </p>
+          </div>
+
+          <a href="{{ user.link }}">Read more...</a>
+          <br>
+          <br>
+        </div>
+
+        <div class="col-md-4">
+          <br><br>
+          <!-- post widget -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="aside-widget">
+                <div class="section-title">
+                  <h2>Catagories</h2>
+                </div>
+                <div class="category-widget">
+                  <ul>
+                    <li><a href="#" class="cat-1"> Sport<span>340</span></a></li>
+                    <li><a href="#" class="cat-2"> Politics<span>74</span></a></li>
+                    <li><a href="#" class="cat-4"> Education<span>41</span></a></li>
+                    <li><a href="#" class="cat-3"> Bussiness<span>35</span></a></li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="aside-widget">
+            <div class="section-title">
+              <h2>Most Read</h2>
+            </div>
+
+            <div class="post post-widget" *ngFor="let user of newsData">
+              <a class="post-img" href="blog-post.html"><img src="{{ user.image }}" alt=""></a>
+              <div class="post-body">
+                <h3 class="post-title"><a href="blog-post.html">{{ user.heading }}</a></h3>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+        <!-- /row -->
+      </div>
+
+    </div>
+
+
+
+  </div>
+</div>

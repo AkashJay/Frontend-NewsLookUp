@@ -5,15 +5,23 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import {FormsModule} from "@angular/forms";
+import { AppRoutingModule } from './app-routing.module';
+import { SingleNewsComponent } from './single-news/single-news.component';
+import { MainPageComponent } from './main-page/main-page.component';
+import { AdvanceSearchComponent } from './advance-search/advance-search.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SingleNewsComponent,
+    MainPageComponent,
+    AdvanceSearchComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
