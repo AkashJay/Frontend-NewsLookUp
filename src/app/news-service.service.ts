@@ -21,12 +21,36 @@ export class NewsServiceService {
 
   public getRecentNews(date) {
     this.currentDate = date+'T18:30:00Z';
-    this.url = 'http://localhost:8983/solr/SrilankanNewsLookUP/select?indent=on&q=date:[2018-08-20T18:30:00Z%20TO%202018-09-20T18:30:00Z]&sort=date%20desc&wt=json';
+    this.url = 'http://localhost:8983/solr/SrilankanNewsLookUP/select?indent=on&q=date:[2018-08-20T18:30:00Z%20TO%202018-09-26T18:30:00Z]&sort=date%20desc&wt=json';
     return this.http.get(this.url);
   }
 
   public getSingleNews(id) {
     this.url = 'http://localhost:8983/solr/SrilankanNewsLookUP/select?indent=on&q=id:'+id+'&wt=json';
+    return this.http.get(this.url);
+  }
+
+
+
+  public advanceSearchSort(date1,date2,sort) {
+    this.url = 'http://localhost:8983/solr/SrilankanNewsLookUP/select?indent=on&q=date:['+date1+'T18:30:00Z%20TO%20'+date2+'T18:30:00Z]&sort='+sort+'%20desc&wt=json';
+    return this.http.get(this.url);
+  }
+
+  public advanceSearchWithGrouping(date1,date2,sort,group) {
+    this.url = 'http://localhost:8983/solr/SrilankanNewsLookUP/select?indent=on&q=date:['+date1+'T18:30:00Z%20TO%20'+date2+'T18:30:00Z]&group=true&group.field='+group+'&wt=json&group.limit=3&sort='+sort+'%20desc&group.main=true';
+   console.log(this.url);
+    return this.http.get(this.url);
+  }
+
+  public dateRangeSearch(date1,date2,) {
+    this.url = 'http://localhost:8983/solr/SrilankanNewsLookUP/select?indent=on&q=date:['+date1+'T18:30:00Z%20TO%20'+date2+'T18:30:00Z]&wt=json';
+    return this.http.get(this.url);
+  }
+
+
+  public dateRangeSearchGroupingNotSorting(date1,date2,group) {
+    this.url = 'http://localhost:8983/solr/SrilankanNewsLookUP/select?indent=on&q=date:['+date1+'T18:30:00Z%20TO%20'+date2+'T18:30:00Z]&group=true&group.field='+group+'&wt=json&group.limit=3&%20desc&group.main=true';
     return this.http.get(this.url);
   }
 
