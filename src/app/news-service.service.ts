@@ -54,5 +54,23 @@ export class NewsServiceService {
     return this.http.get(this.url);
   }
 
+  public sportsNews() {
+    this.url = 'http://localhost:8983/solr/SrilankanNewsLookUP/select?indent=on&q=sports&sort=date%20desc&wt=json';
+    return this.http.get(this.url);
+  }
+
+  public politicNews() {
+    this.url = 'http://localhost:8983/solr/SrilankanNewsLookUP/select?indent=on&q=politics&sort=date%20desc&wt=json';
+    return this.http.get(this.url);
+  }
+
+  public educationNews() {
+    this.url = 'http://localhost:8983/solr/SrilankanNewsLookUP/select?indent=on&q=education&sort=date%20desc&wt=json';
+    return this.http.get(this.url);
+  }
+
+
+
+
 
 }
