@@ -2,13 +2,13 @@
 
   <div class="row">
     <div class="topnav">
-      <a class="active" href="#home"><b>Srilankan NewsLookUP</b></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <button type="button" class="btn btn-primary" routerLink="/advaceSearch" >Advance Search</button>
+      <a class="active" href="#home"><b>Srilankan NewsLookUP</b></a>
       <div class="search-container">
         <form>
 
           <input type="text" placeholder="Search.." name="search"  [(ngModel)]="inputValue" >
-          <button type="submit" >Search</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="button" class="btn btn-primary" style="background-color: #e9e9e9; color: #212631 " routerLink="/advaceSearch" >Advance Search</button>
         </form>
       </div>
     </div>
@@ -113,9 +113,9 @@
             </div>
 
             <div class="post post-widget" *ngFor="let user of sportsNews">
-              <a class="post-img" href="blog-post.html"><img src="{{ user.image }}" alt=""></a>
+              <a class="post-img" routerLink="/SingleNews/{{user.id}}"><img src="{{ user.image }}" alt=""></a>
               <div class="post-body">
-                <h3 class="post-title"><a href="blog-post.html">{{ user.heading }}</a></h3>
+                <h3 class="post-title"><a routerLink="/SingleNews/{{user.id}}">{{ user.heading }}</a></h3>
               </div>
             </div>
 

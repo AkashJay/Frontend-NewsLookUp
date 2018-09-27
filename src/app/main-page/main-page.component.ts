@@ -19,6 +19,7 @@ export class MainPageComponent implements OnInit {
   public month;
   public showRecentNews = true;
   public numFound ;
+  public searchBoolean = false;
 
 
   constructor(private dataService: NewsServiceService) {
@@ -37,6 +38,7 @@ export class MainPageComponent implements OnInit {
 
 
   public onChanged(): void{
+    this.searchBoolean = true;
     if (this.inputValue === ''){
       this.showRecentNews = true;
       this.showRecentNewsD();
