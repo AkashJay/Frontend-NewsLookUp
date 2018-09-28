@@ -6,6 +6,7 @@ import {AdvanceSearchComponent} from "./advance-search/advance-search.component"
 import {SportsCategoryComponent} from "./sports-category/sports-category.component";
 import {PoliticsCategoryComponent} from "./politics-category/politics-category.component";
 import {EducationCategoryComponent} from "./education-category/education-category.component";
+import {SpellCheckComponent} from "./spell-check/spell-check.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -14,7 +15,10 @@ const routes: Routes = [
   { path: 'advaceSearch', component: AdvanceSearchComponent },
   { path: 'sports', component: SportsCategoryComponent },
   { path: 'politics', component: PoliticsCategoryComponent },
-  { path: 'education', component: EducationCategoryComponent }
+  { path: 'education', component: EducationCategoryComponent },
+  { path: 'spellchek/:word', component: SpellCheckComponent }
+
+
 
 ];
 

@@ -122,6 +122,19 @@ export class NewsServiceService {
     return this.http.get(this.url);
   }
 
+  public spellchecking(term) {
+    this.url = 'http://localhost:8983/solr/SrilankanNewsLookUP/spell?spellcheck.q='+term+'&spellcheck=true&wt=json&indent=on';
+    return this.http.get(this.url);
+  }
+
+  public spellCheckNews(term) {
+    this.url = 'http://localhost:8983/solr/SrilankanNewsLookUP/select?indent=on&q='+term+'&sort=date%20desc&wt=json';
+    return this.http.get(this.url);
+  }
+
+
+
+
 
 
 

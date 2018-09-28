@@ -12,6 +12,9 @@ import { AdvanceSearchComponent } from './advance-search/advance-search.componen
 import { SportsCategoryComponent } from './sports-category/sports-category.component';
 import { PoliticsCategoryComponent } from './politics-category/politics-category.component';
 import { EducationCategoryComponent } from './education-category/education-category.component';
+import { SafePipe } from './pipes/safe.pipe';
+import { SpellCheckComponent } from './spell-check/spell-check.component';
+import { SpecllCoreectionComponent } from './specll-coreection/specll-coreection.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { EducationCategoryComponent } from './education-category/education-categ
     AdvanceSearchComponent,
     SportsCategoryComponent,
     PoliticsCategoryComponent,
-    EducationCategoryComponent
+    EducationCategoryComponent,
+    SafePipe,
+    SpellCheckComponent,
+    SpecllCoreectionComponent
   ],
   imports: [
     BrowserModule,

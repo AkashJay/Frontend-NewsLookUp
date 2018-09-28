@@ -112,7 +112,7 @@
               <h2>Most Read</h2>
             </div>
 
-            <div class="post post-widget" *ngFor="let user of politicsNews">
+            <div class="post post-widget" *ngFor="let user of politicsNews" >
               <a class="post-img" routerLink="/SingleNews/{{user.id}}"><img src="{{ user.image }}" alt=""></a>
               <div class="post-body">
                 <h3 class="post-title"><a routerLink="/SingleNews/{{user.id}}">{{ user.heading }}</a></h3>

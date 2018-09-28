@@ -11,6 +11,10 @@ export class MainPageComponent implements OnInit {
   public data;
   public heading;
   public res;
+  public spellcheck;
+  public suggestions;
+  public suggest;
+  public suggestWords : { word: string, freq: string }[];
   public doc;
   public newsData: any;
   public inputValue = '';
@@ -24,6 +28,7 @@ export class MainPageComponent implements OnInit {
   public head;
   public highlightHeading: { id: string, name: string }[];
   public searchA = false;
+  public  index = 0;
 
 
   constructor(private dataService: NewsServiceService) {
@@ -81,6 +86,7 @@ export class MainPageComponent implements OnInit {
   public search(term: string): void{
     this.searchA = true;
     this.highlightHeading =[];
+    this.suggestWords = [];
 
 
     this.dataService.call_api(term).subscribe(response => {
@@ -107,7 +113,30 @@ export class MainPageComponent implements OnInit {
       }
       this.numFound = this.res.numFound;
       this.doc = this.res.docs;
-      //console.log(this.n)
+      if(this.numFound === 0){
+        this.dataService.spellchecking(this.inputValue).subscribe(response => {
+          // console.log(response);
+          this.data = response;
+          console.log(this.data.spellcheck);
+          this.spellcheck = this.data.spellcheck;
+          this.suggestions = this.spellcheck.suggestions;
+          this.suggest = this.suggestions[1].suggestion;
+          console.log(this.suggest);
+          this.suggest.forEach((s)=>{
+                this.suggestWords.push({word : s.word, freq :s.freq});
+
+          });
+
+          console.log(this.suggestWords);
+
+          this.newsData = [];
+
+          this.doc.forEach((document) => {
+            console.log(document.id);
+            this.newsData.push(document);
+          });
+        });
+      }
 
       this.newsData = [];
 
@@ -120,8 +149,7 @@ export class MainPageComponent implements OnInit {
       });
 
     });
-    console.log('++++++++++++++++')
-    console.log(this.highlightHeading);
+
 
   }
 
