@@ -15,7 +15,8 @@ export class NewsServiceService {
   }
 
   call_api(term) {
-    this.url = 'http://localhost:8983/solr/SrilankanNewsLookUP/select?indent=on&q='+term+'&sort=date%20desc&wt=json';
+    // this.url = 'http://localhost:8983/solr/SrilankanNewsLookUP/select?indent=on&q='+term+'&sort=date%20desc&wt=json';
+    this.url = 'http://localhost:8983/solr/SrilankanNewsLookUP/select?hl.fl=heading&hl.simple.post=%3C/a%3E&hl.simple.pre=%3Ca%3E&hl=on&indent=on&q='+term+'&sort=date%20desc&wt=json';
     return this.http.get(this.url);
   }
 
@@ -24,6 +25,8 @@ export class NewsServiceService {
     this.url = 'http://localhost:8983/solr/SrilankanNewsLookUP/select?indent=on&q=date:[2018-08-20T18:30:00Z%20TO%202018-09-26T18:30:00Z]&sort=date%20desc&wt=json';
     return this.http.get(this.url);
   }
+
+
 
   public getSingleNews(id) {
     this.url = 'http://localhost:8983/solr/SrilankanNewsLookUP/select?indent=on&q=id:'+id+'&wt=json';

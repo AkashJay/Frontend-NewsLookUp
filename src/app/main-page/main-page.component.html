@@ -74,7 +74,13 @@
                     <a class="post-category cat-1" routerLink="/SingleNews/{{user.id}}">Local</a>
                     <span class="post-date">{{ user.date | date :'longDate' }}</span>
                   </div>
-                  <h3 class="post-title"><a routerLink="/SingleNews/{{user.id}}"> {{ user.heading }} </a></h3>
+                  <div *ngIf="!searchA">
+                    <h3 class="post-title"><a routerLink="/SingleNews/{{user.id}}" > {{ user.heading }} </a></h3>
+                  </div>
+                  <div *ngFor="let h of highlightHeading">
+                    <h3 class="post-title"><a routerLink="/SingleNews/{{user.id}}" *ngIf="h.name === 'notmatch' && h.id === user.id && searchA"> {{ user.heading }} </a></h3>
+                    <h3 class="post-title"><a routerLink="/SingleNews/{{user.id}}" *ngIf="h.name !== 'notmatch' && h.id === user.id && searchA" > <p [innerHTML]="h.name"></p>  </a></h3>
+                  </div>
                 </div>
               </div>
             </div>

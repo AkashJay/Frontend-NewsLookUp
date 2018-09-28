@@ -20,6 +20,10 @@ export class MainPageComponent implements OnInit {
   public showRecentNews = true;
   public numFound ;
   public searchBoolean = false;
+  public highlighing;
+  public head;
+  public highlightHeading: { id: string, name: string }[];
+  public searchA = false;
 
 
   constructor(private dataService: NewsServiceService) {
@@ -75,11 +79,32 @@ export class MainPageComponent implements OnInit {
   }
 
   public search(term: string): void{
+    this.searchA = true;
+    this.highlightHeading =[];
+
+
     this.dataService.call_api(term).subscribe(response => {
-      // console.log(response);
+      console.log(response);
       this.data = response;
-      // console.log(this.data.response);
       this.res = this.data.response;
+      this.highlighing = this.data.highlighting;
+
+      for (let key in this.highlighing) {
+
+       this.head = this.highlighing[key].heading;
+       if(this.head === undefined){
+
+            this.highlightHeading.push({id : key ,name :'notmatch'})
+       } else if (this.head !== undefined){
+         this.head.forEach((h) => {
+           this.highlightHeading.push({id : key ,name :h});
+         })
+       }
+
+
+
+        // Use `key` and `value`
+      }
       this.numFound = this.res.numFound;
       this.doc = this.res.docs;
       //console.log(this.n)
@@ -87,7 +112,7 @@ export class MainPageComponent implements OnInit {
       this.newsData = [];
 
       this.doc.forEach((document) => {
-        console.log(document.id);
+        // console.log(document.id);
 
         this.newsData.push(document);
 
@@ -95,6 +120,8 @@ export class MainPageComponent implements OnInit {
       });
 
     });
+    console.log('++++++++++++++++')
+    console.log(this.highlightHeading);
 
   }
 

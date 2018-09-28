@@ -28,6 +28,7 @@
           </div>
 
           <div class="row">
+            <div class="col-md-1"></div>
             <div class="col-md-5">
               <div class="section-title">
                 <h4></h4>
@@ -51,45 +52,56 @@
           </div>
 
           <div class="row">
-              <div class="col-md-12">
+            <div class="col-md-1"></div>
+              <div class="col-md-10">
                 <div class="section-title">
                   <h4></h4>
                   <label>Time Period</label>
                 </div>
-                <form>
+                <div class="form-group">
                   From : &nbsp;&nbsp;
                   <input type="date" name="bday" [(ngModel)]="inputDate1">
-                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                   &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
                   To : &nbsp;&nbsp;
                   <input type="date" name="bday" [(ngModel)]="inputDate2">
-                  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-                  <button type="button" class="btn btn-info" (click)="onChanged()">Search</button>
-                </form>
+
+                </div>
               </div>
           </div>
 
           <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
               <div class="section-title">
                 <h4></h4>
                 <label>Sort By</label>
               </div>
               <div class="form-group">
-                <select [(ngModel)]="sortBy" [ngModelOptions]="{standalone: true}" class="form-control">
+                <select [(ngModel)]="sortBy" [ngModelOptions]="{standalone: true}" class="form-control" style="width: 200px">
                   <option *ngFor="let c of sortOption" [ngValue]="c">{{c}}</option>
                 </select>
               </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
               <div class="section-title">
                 <h4></h4>
                 <label>Group By</label>
               </div>
               <div class="form-group">
-                <select [(ngModel)]="groupBy" [ngModelOptions]="{standalone: true}" class="form-control">
+                <select [(ngModel)]="groupBy" [ngModelOptions]="{standalone: true}" class="form-control" style="width: 200px">
                   <option *ngFor="let c of sortOption" [ngValue]="c">{{c}}</option>
                 </select>
               </div>
+            </div>
+
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-6">
+
+              <button type="button" class="btn btn-info" (click)="onChanged()" style="padding: 7px 45px;font-size: 20px;">Search</button>
             </div>
           </div>
 
